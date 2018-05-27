@@ -4,18 +4,18 @@ import com.boot.entity.AbstractEntity;
 import com.boot.entry.AbstractEntry;
 import com.boot.exception.ManagerException;
 import com.boot.mapper.EntryEntityMapper;
-import org.springframework.data.repository.CrudRepository;
+import com.boot.repository.AbstractRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 public abstract class AbstractManager<E extends AbstractEntry, B extends AbstractEntity> {
 
-    private CrudRepository<B, Long> repository;
+    private AbstractRepository<B, Long> repository;
 
     private EntryEntityMapper<E, B> mapper;
 
-    public AbstractManager(CrudRepository<B, Long> repository, EntryEntityMapper<E, B> mapper) {
+    public AbstractManager(AbstractRepository<B, Long> repository, EntryEntityMapper<E, B> mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
